@@ -1,0 +1,15 @@
+{
+  "name": "bramdehart/groceries-api",
+  "description": "Groceries API specification",
+  "homepage": "https://github.com/bramdehart/groceries-api",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Bram de Hart",
+      "email": "bram@bramdehart.nl",
+      "homepage": "https://bramdehart.nl",
+      "role": "Developer"
+    }
+  ]
+}
