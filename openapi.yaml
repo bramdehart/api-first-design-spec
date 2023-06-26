@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   version: 1.0.0
   title: Groceries API
-  description: Part of the API first design POC (https://github.com/bramdehart/api-first-design-poc)
+  description: Groceries API
 paths:
   /groceries:
     get:
