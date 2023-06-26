@@ -1,0 +1,77 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Groceries API
+  description: Part of the API first design POC (https://github.com/bramdehart/api-first-design-poc)
+paths:
+  /groceries:
+    get:
+      description: Returns a list of groceries
+      operationId: getGroceries
+      parameters:
+        - name: page
+          in: query
+          description: The page number
+          required: false
+          schema:
+            type: integer
+            format: int32
+        - name: limit
+          in: query
+          description: The maximum number of groceries to return
+          required: false
+          schema:
+            type: integer
+            format: int32
+        - name: ordered_at
+          in: query
+          description: The order date
+          required: false
+          schema:
+            type: string
+            format: date
+      responses:
+        200:
+          description: Successful response
+          content:
+              application/json:
+                schema:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Grocery'
+
+components:
+  schemas:
+    Grocery:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroceryItem'
+        price:
+          type: number
+          format: float
+        status:
+            type: string
+            enum: [pending, ordered, delivered, cancelled]
+        ordered_at:
+          type: string
+          format: date
+    GroceryItem:
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          enum: [ apple, pear, soda, soap ]
+        quantity:
+          type: integer
+          format: int32
+        price:
+          type: number
+          format: float
