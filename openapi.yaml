@@ -9,7 +9,10 @@ paths:
       description: Add grocery item
       operationId: addGroceries
       requestBody:
-        $ref: '#/components/schemas/Grocery'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Grocery'
       responses:
         201:
           description: Successful response
